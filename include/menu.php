@@ -53,14 +53,18 @@
                     <a href="" class="waves-effect"><i class="fas fa-home"></i> Inicio</a>
                 </li>
                 <li>
-                    <a href="ventas.php" class="waves-effect"><i class="fas fa-gift"></i>Ventas</a>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="fas fa-boxes"></i>Ventas</a>
                     <ul class="sub-menu" aria-expanded="false">
                             <li><a href="ventas.php">Ventas</a></li>
                             <li><a href="detalle_venta.php">Detalle de Venta</a></li>
                         </ul>
                 </li>
                 <li>
-                    <a href="producto.php"  class="waves-effect"><i class="fas fa-shopping-bag"></i>Producto</a>
+                <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="fas fa-boxes"></i>Productos</a>
+                    <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="producto.php">Productos</a></li>
+                            <li><a href="categoria.php">Categoría</a></li>
+                        </ul>
                 </li>
                 
                 <li>
@@ -71,15 +75,15 @@
                     <a href="formulario.php"  class="waves-effect"><i class="fas fa-user-friends"></i>Usuario</a>
                 </li>
                 <li>
-                    <a href="pedidos.php"  class="waves-effect"><i class="fas fa-cart-plus"></i>Pedidos</a>
+                <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="fas fa-boxes"></i>Pedidos</a>
                     <ul class="sub-menu" aria-expanded="false">
-                            <li><a href="ventas.php">Pedidos</a></li>
-                            <li><a href="detalle_venta.php">Detalle de Pedidos</a></li>
+                            <li><a href="pedidos.php">Pedidos</a></li>
+                            <li><a href="detalle_pedido.php">Detalle de Pedidos</a></li>
                         </ul>
                 </li>
                 
                 <li>
-                    <a href="formulario.php"  class="waves-effect"><i class="fas fa-users"></i>Clientes</a>
+                    <a href="cliente.php"  class="waves-effect"><i class="fas fa-users"></i>Clientes</a>
                 </li>
                 <li>
                     <a href="proveedor.php"  class="waves-effect"><i class="fas fa-truck"></i>Proveedores</a>
@@ -94,7 +98,7 @@
                         <li><a href="sistema.php">Datos de Sistema</a></li>
                         <li><a href="empresa.php">Datos de Empresa</a></li>
                         <li><a href="roles.php">Roles</a></li>
-                        <li><a href="">Categoría</a></li>
+                       
                     </ul>
                 </li>
                 

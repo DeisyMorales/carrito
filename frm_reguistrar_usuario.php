@@ -414,6 +414,11 @@
                                             <label for="example-password">Fecha de Nacimiento</label>
                                             <input type="date" id="example-password" class="form-control" placeholder="Ingree tu fecha de nacimiento" >
                                         </div>
+
+                                         <div class="form-group">
+                                            <label for="example-password">Fecha de Nacimiento</label>
+                                            <input type="date" id="example-password" class="form-control" placeholder="Ingree tu fecha de nacimiento" >
+                                        </div>
                                         <button type="button" class="btn btn-success">Success</button>
 
                                         

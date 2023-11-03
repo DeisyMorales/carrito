@@ -28,35 +28,10 @@ include ("include/menu.php");
                         <div class="card-body">
                         <form action="Operaciones/registrar_usuario.php" method="POST">
                             <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Ruc y/o Dni: </label>
-                                <input type="number" name="dni" class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                <label class="col-lg-3 col-md-3 col-sm-12">Nombre: </label>
+                                <input type="number" name="nombre" class="form-control col-lg-4 col-md-4 col-sm-12" required>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Razon socil: </label>
-                                <input type="text" name="nombre" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Telefono : </label>
-                                <input type="number" name="telefono" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Correo : </label>
-                                <input type="email" name="correo" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Direccion: </label>
-                                <input type="text" name="direc" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12"> Direccion de envio: </label>
-                                <input type="text" name="direc_envio" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
+                           
 
                            
                             
@@ -65,7 +40,6 @@ include ("include/menu.php");
                             <label class="col-lg-3 col-md-3 col-sm-12"></label>
                                 <button type="submit" class="btn btn-success">Guardar
 
-                                </button>
 
                             </div>
                         </form>

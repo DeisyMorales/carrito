@@ -57,7 +57,7 @@ include ("include/menu.php");
 
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">Metodo de pago: </label>
-                                <input type="text" name="direc" class="form-control col-lg-4 col-md-4 col-sm-12" 
+                                <input type="text" name="pago" class="form-control col-lg-4 col-md-4 col-sm-12" 
                                 required>
                             </div>
                             
