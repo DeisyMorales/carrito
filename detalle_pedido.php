@@ -44,6 +44,14 @@ include ("include/menu.php");
                                 <input type="number" name="importe" class="form-control col-lg-9 col-md-9 col-sm-12" 
                                 required>
                             </div>
+
+                            <div class="form-group row">
+                            <label class="col-lg-3 col-md-3 col-sm-12"></label>
+                                <button type="submit" class="btn btn-success">Guardar
+
+                                </button>
+
+                            </div>
                            
                         </form>
                         </div>

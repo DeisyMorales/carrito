@@ -26,7 +26,7 @@ include ("include/menu.php");
                     <h4 class="">Registro de Proveedores</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_usuario.php" method="POST">
+                        <form action="Operaciones/registrar_proveedor.php" method="POST">
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">Ruc: </label>
                                 <input type="number" name="ruc" class="form-control col-lg-4 col-md-4 col-sm-12" required>

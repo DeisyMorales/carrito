@@ -23,10 +23,10 @@ include ("include/menu.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <h4 class="">Registro de Cliente</h4>
+                    <h4 class="">Registro de Categoria</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_usuario.php" method="POST">
+                        <form action="Operaciones/registrar_categoria.php" method="POST">
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">Nombre: </label>
                                 <input type="text" name="nombre" class="form-control col-lg-4 col-md-4 col-sm-12" required>
