@@ -26,48 +26,59 @@ include ("include/menu.php");
                     <h4 class="">Registro de Cliente</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_cliente.php" method="POST">
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Ruc y/o Dni: </label>
-                                <input type="number" name="dni" class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Razon socil: </label>
-                                <input type="text" name="nombre" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Telefono : </label>
-                                <input type="number" name="telefono" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Correo : </label>
-                                <input type="email" name="correo" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Direccion: </label>
-                                <input type="text" name="direc" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
+                        <form action="operaciones/registrar_cliente.php" method="post">
 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12"> Direccion de envio: </label>
-                                <input type="text" name="direc_envio" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
 
-                           
-                            
-
-                            <div class="form-group row">
-                            <label class="col-lg-3 col-md-3 col-sm-12"></label>
-                                <button type="submit" class="btn btn-success">Guardar
-
-                                </button>
+                        <div class="form-group row ">
+                                <label class="col-lg-2 col-md-2 col-sm-12" for="">ruc_dni :</label>
+                                <input type="number"class="form-control col-lg-4 col-md-4 col-sm-12"  name="ruc" required>
 
                             </div>
+                        <div class="form-group row">
+                            <label class="col-lg-2 col-md-2 col-sm-12" for="">Razon Social</label>
+                            <input type="text"class="form-control ol-lg-10 col-md-10 col-sm-12"  name="nombre" required>
+
+                            </div>
+
+                            <div class="form-group row ">
+                                <label class="col-lg-2 col-md-2 col-sm-12" for="">Correo:</label>
+                                <input type="email"class="form-control col-lg-10 col-md-10 col-sm-12"  name="correo" required>
+
+                            </div>
+
+
+                            <div class="form-group row ">
+                                <label class="col-lg-2 col-md-2 col-sm-12" for="">Telefono :</label>
+                                <input type="number"class="form-control col-lg-4 col-md-4 col-sm-12"  name="telefono" required>
+
+                            </div>
+
+
+                            <div class="form-group row ">
+                                <label class="col-lg-2 col-md-2 col-sm-12" for="">Direccion:</label>
+                                <input type="text"class="form-control ol-lg-10 col-md-10 col-sm-12"  name="direccion" required>
+
+                            </div>
+
+                            <div class="form-group row ">
+                                <label class="col-lg-2 col-md-2 col-sm-12" for="">Direccion de Envio</label>
+                                <input type="text"class="form-control col-lg-4 col-md-4 col-sm-12"  name="envio" required>
+
+                            </div>
+
+
+                    
+
+                            <div class="form-group row ">
+                                <label class="col-lg-2 col-md-2 col-sm-12" for=""></label>
+                                <button type="submit" class="btn  btn-success ">Guardar</button>
+
+                            </div>
+
+                      
+                      
+
+
                         </form>
                         </div>
                   

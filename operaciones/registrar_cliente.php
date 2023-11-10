@@ -1,31 +1,28 @@
 <?php
-include ("../include/conexion.php");
+include("../include/conexion.php");
+//recibir la informacion
+$ruc=$_POST['ruc'];
+$razon_social=$_POST['nombre'];
+$correo=$_POST['correo'];
+$telefono=$_POST['telefono'];
+$direccion=$_POST['direccion'];
+$envio=$_POST['envio'];
 
-//recibir informacion
-$ruc = $_POST["dni"];
-$razon_social = $_POST["nombre"];
-$telefono = $_POST["telefono"];
-$correo = $_POST["correo"];
-$direccion = $_POST["direc"];
-$direccion_envio = $_POST["direc_envio"];
+$consulta="INSERT INTO cliente(ruc_dni,razon_social,correo,telefono,direccion,direccion_envio)
+    VALUES ('$ruc','$razon_social','$correo','$telefono','$direccion','$envio')";
+    
+    $ejecutar= mysqli_query($conexion, $consulta);
 
-//mostrar
-//echo $dni. "<br>";
-//echo $Apell_Nombre. "<br>";
-//echo $correo. "<br>";
-//echo $telefono. "<br>";
-//echo $direccion. "<br>";
-//echo $fecha. "<br>";
+    if ($ejecutar) {
+        echo "Registro Exitoso";
+        
+    }else {
+        echo "Registro Fallido";
+    }
 
 
 
-$consulta  = "INSERT INTO cliente (ruc_dni,razon_social,telefono,correo,direccion,direccion_envio) 
-VALUES ('$ruc','$razon_social','$telefono','$correo,'$direccion','$direccion_envio')";
 
-$ejecutar = mysqli_query($conexion,$consulta);
-if ($ejecutar) {
-    echo "Registro Exitoso";
-}else {
-    echo "Error en el Registro";
-}
+
+
 ?>

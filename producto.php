@@ -26,7 +26,7 @@ include ("include/menu.php");
                     <h4 class="">Registro de Productos</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_producto.php" method="POST" enctype="multipart/form-data">
+                        <form action="operaciones/registrar_producto.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">codigo: </label>
                                 <input type="number" name="codigo" class="form-control col-lg-4 col-md-4 col-sm-12" required>
@@ -43,9 +43,9 @@ include ("include/menu.php");
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">precio venta : </label>
-                                <input type="number" name="precio" class="form-control col-lg-4 col-md-4 col-sm-12" 
+                                <input type="number" name="precio_venta" class="form-control col-lg-4 col-md-4 col-sm-12" 
                                 required>
-                            </div>
+                            </div>                                                                                                       
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12"> Stock: </label>
                                 <input type="text" name="stock" class="form-control col-lg-9 col-md-9 col-sm-12" 
@@ -65,7 +65,7 @@ include ("include/menu.php");
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12"> Foto: </label>
+                                <label class="col-lg-3 col-md-3 col-sm-12">imagen: </label>
                                 <input type="file" name="foto" class="form-control col-lg-4 col-md-4 col-sm-12" 
                                 require accept="image/*">
                             </div>
