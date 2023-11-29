@@ -1,3 +1,10 @@
+<?php
+include("include/conexion.php");
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,54 +30,54 @@ include ("include/menu.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php include("include/modal_proveedor.php");?>
                     <h4 class="">Registro de Proveedores</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_proveedor.php" method="POST">
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Ruc: </label>
-                                <input type="number" name="ruc" class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                            </div>
-                            
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Razon social: </label>
-                                <input type="text" name="razon" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Email: </label>
-                                <input type="email" name="email" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">telefono: </label>
-                                <input type="number" name="telefono" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
+                        <table id="basic-datatable" class="table dt-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Nro</th>
+                                        <th>ruc :</th>
+                                        <th>Razon Social</th>
+                                        <th>Correo:</th>
+                                        <th>Telefono</th>
+                                        <th>Direccion</th>
+                                        <th>metodo de pago</th>
+                                        
 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Direccion: </label>
-                                <input type="text" name="direc" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            
+                                    </tr>
+                                    <tbody>
+                                    <?php
+                                        $consulta ="SELECT * FROM proveedor";
+                                        $ejecutar =mysqli_query($conexion,$consulta);
+                                        $contador =0;
+                                        while ($respuesta =mysqli_fetch_array($ejecutar)) {
+                                            # code...
+                                            $contador += 1;
+                                            echo "<tr>";
+                                            echo "<td>".$contador."</td>";
+                                            echo "<td>".$respuesta['ruc']."</td>";
+                                            echo "<td>".$respuesta['razon_social']."</td>";
+                                            echo "<td>".$respuesta['correo']."</td>";
+                                            echo "<td>".$respuesta['telefono']."</td>";
+                                            echo "<td>".$respuesta['direccion']."</td>";
+                                            echo "<td>".$respuesta['metodo_pago']."</td>";
+                                            echo "<td><button class='btn bnt-success'>Editar</button><button class='btn btn-success'</td>";
+                                            
+                                            echo "</tr>";
+                                        }
+                                        
+                                        
+                                        ?>
+                                  
+                                    
+                                      
 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Metodo de pago: </label>
-                                <input type="text" name="pago" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            
-                            
-
-                            <div class="form-group row">
-                            <label class="col-lg-3 col-md-3 col-sm-12"></label>
-                                <button type="submit" class="btn btn-success">Guardar
-
-                                </button>
-
-                            </div>
-                        </form>
+                                    </tbody>
+                                </thead>
+                            </table>
+                        
                         </div>
                   
                     </div>

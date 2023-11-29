@@ -1,3 +1,9 @@
+<?php
+include("include/conexion.php");
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,48 +29,54 @@ include ("include/menu.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php include("include/modal_pedido.php");?>
                     <h4 class="">Registro de Pedidos</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_usuario.php" method="POST">
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Fecha pedido: </label>
-                                <input type="date" name="fecha" class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                            </div>
-                           
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Fecha entraga: </label>
-                                <input type="date" name="fecha_entrega" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">metodo de pago: </label>
-                                <input type="text" name="metodo" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">monto: </label>
-                                <input type="number" name="monto" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">comprobante de pago: </label>
-                                <input type="text" name="comprobante" class="form-control col-lg-4 col-md-4 col-sm-12" >
-                            </div>
+                        <table id="basic-datatable" class="table dt-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Nro</th>
+                                        <th>Fecha pedido</th>
+                                        <th>Fecha entraga</th>
+                                        <th>medoto de pago</th>
+                                        <th>monto</th>
+                                        <th>Comprobante de pago</th>
+                                        <th>Estado</th>
+                                       
+                                       
 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Estado: </label>
-                                <input type="text" name="estado" class="form-control col-lg-4 col-md-4 col-sm-12" >
-                            </div>
+                                    </tr>
+                                    <tbody>
+                                    <?php
+                                        $consulta ="SELECT * FROM pedidos";
+                                        $ejecutar =mysqli_query($conexion,$consulta);
+                                        $contador =0;
+                                        while ($respuesta =mysqli_fetch_array($ejecutar)) {
+                                            # code...
+                                            $contador += 1;
+                                            echo "<tr>";
+                                            echo "<td>".$contador."</td>";
+                                            echo "<td>".$respuesta['fecha_hora_pedido']."</td>";
+                                            echo "<td>".$respuesta['fecha_entrega']."</td>";
+                                            echo "<td>".$respuesta['metodo_pago']."</td>";
+                                            echo "<td>".$respuesta['monto']."</td>";
+                                            echo "<td>".$respuesta['comprobante']."</td>";
+                                            echo "<td>".$respuesta['estado']."</td>";
+                                            
+                                            echo "<td><button class='btn bnt-success'>Editar</button><button class='btn btn-success'</td>";
+                                            
+                                            echo "</tr>";
+                                        }
+                                        
+                                        
+                                        ?>
+                                     
 
-                            <div class="form-group row">
-                            <label class="col-lg-3 col-md-3 col-sm-12"></label>
-                                <button type="submit" class="btn btn-success">Guardar
-
-                                </button>
-
-                            </div>
-                        </form>
+                                    </tbody>
+                                </thead>
+                                </table>
+                       
                         </div>
                   
                     </div>

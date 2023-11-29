@@ -4,7 +4,7 @@ include("../include/conexion.php");
 
 $dni=$_POST['dni'];
 $ape_nom=$_POST['nombre'];
-$correo=$_POST['emial'];
+$correo=$_POST['email'];
 $telefono=$_POST['telefono'];
 $direccion=$_POST['direc'];
 $fecha_naci=$_POST['fecha'];

@@ -1,3 +1,7 @@
+<?php
+include("include/conexion.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,62 +27,57 @@ include ("include/menu.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php include("include/modal_producto.php");?>
                     <h4 class="">Registro de Productos</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="operaciones/registrar_producto.php" method="POST" enctype="multipart/form-data">
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">codigo: </label>
-                                <input type="number" name="codigo" class="form-control col-lg-4 col-md-4 col-sm-12" required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Descripcion: </label>
-                                <input type="text" name="descripcion" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Detalle : </label>
-                                <input type="text" name="detalle" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">precio venta : </label>
-                                <input type="number" name="precio_venta" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>                                                                                                       
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12"> Stock: </label>
-                                <input type="text" name="stock" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12"> Estado: </label>
-                                <input type="text" name="estado" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
+                        <table id="basic-datatable" class="table dt-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Nro</th>
+                                        <th>codigo</th>
+                                        <th>Descripcion</th>
+                                        <th>Detalle</th>
+                                        <th>Precio compra</th>
+                                        <th>Precio venta</th>
+                                        <th>Stock</th>
+                                        <th>Estado</th>
+                                        <th>imagen</th>
+                                       
 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Precio compra: </label>
-                                <input type="number" name="precio_compra" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
+                                    </tr>
+                                    <tbody>
+                                    <?php
+                                        $consulta ="SELECT * FROM producto";
+                                        $ejecutar =mysqli_query($conexion,$consulta);
+                                        $contador =0;
+                                        while ($respuesta =mysqli_fetch_array($ejecutar)) {
+                                            # code...
+                                            $contador += 1;
+                                            echo "<tr>";
+                                            echo "<td>".$contador."</td>";
+                                            echo "<td>".$respuesta['codigo']."</td>";
+                                            echo "<td>".$respuesta['descripcion']."</td>";
+                                            echo "<td>".$respuesta['detalle']."</td>";
+                                            echo "<td>".$respuesta['precio_compra']."</td>";
+                                            echo "<td>".$respuesta['precio_venta']."</td>";
+                                            echo "<td>".$respuesta['stock']."</td>";
+                                            echo "<td>".$respuesta['estado']."</td>";
+                                            echo "<td>".$respuesta['imagen']."</td>";
+                                            echo "<td><button class='btn bnt-success'>Editar</button><button class='btn btn-success'</td>";
+                                            
+                                            echo "</tr>";
+                                        }
+                                        
+                                        
+                                        ?>
+                                     
 
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">imagen: </label>
-                                <input type="file" name="foto" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                require accept="image/*">
-                            </div>
-                            
-
-                            <div class="form-group row">
-                            <label class="col-lg-3 col-md-3 col-sm-12"></label>
-                                <button type="submit" class="btn btn-success">Guardar
-
-                                </button>
-
-                            </div>
-                        </form>
+                                    </tbody>
+                                </thead>
+                            </table>
+                       
                         </div>
                   
                     </div>

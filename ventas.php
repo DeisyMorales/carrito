@@ -1,3 +1,9 @@
+<?php
+include("include/conexion.php");
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,40 +29,52 @@ include ("include/menu.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php include("include/modal_venta.php");?>
                     <h4 class="">Registro de Ventas</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_usuario.php" method="POST">
-                            
-                           
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Serie venta: </label>
-                                <input type="text" name="serie" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Numero de venta: </label>
-                                <input type="number" name="numero" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Fecha de venta: </label>
-                                <input type="date" name="fecha" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Monto total: </label>
-                                <input type="number" name="monto" class="form-control col-lg-4 col-md-4 col-sm-12" >
-                            </div>
+                        <table id="basic-datatable" class="table dt-responsive nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Nro</th>
+                                        <th>Serie</th>
+                                        <th>Numero de venta</th>
+                                        <th>Fecha de venta</th>
+                                        <th>Monto total</th>
+                                        
+                                       
+                                       
 
-                            <div class="form-group row">
-                            <label class="col-lg-3 col-md-3 col-sm-12"></label>
-                                <button type="submit" class="btn btn-success">Guardar
+                                    </tr>
+                                    <tbody>
+                                    <?php
+                                        $consulta ="SELECT * FROM ventas";
+                                        $ejecutar =mysqli_query($conexion,$consulta);
+                                        $contador =0;
+                                        while ($respuesta =mysqli_fetch_array($ejecutar)) {
+                                            # code...
+                                            $contador += 1;
+                                            echo "<tr>";
+                                            echo "<td>".$contador."</td>";
+                                            echo "<td>".$respuesta['serie_venta']."</td>";
+                                            echo "<td>".$respuesta['numero_venta']."</td>";
+                                            echo "<td>".$respuesta['fecha_hora_venta']."</td>";
+                                            echo "<td>".$respuesta['monto_total']."</td>";
+                                           
+                                            
+                                            echo "<td><button class='btn bnt-success'>Editar</button><button class='btn btn-success'</td>";
+                                            
+                                            echo "</tr>";
+                                        }
+                                        
+                                        
+                                        ?>
+                                     
 
-                                </button>
-
-                            </div>
-                        </form>
+                                    </tbody>
+                                </thead>
+                            </table>
+                       
                         </div>
                   
                     </div>
