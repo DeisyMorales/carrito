@@ -26,7 +26,7 @@ include ("include/menu.php");
                     <h4 class="">Registro de Roles</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_roles.php" method="POST">
+                        <form action="operaciones/registrar_roles.php" method="POST">
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">Nombre: </label>
                                 <input type="text" name="nombre" class="form-control col-lg-4 col-md-4 col-sm-12" required>

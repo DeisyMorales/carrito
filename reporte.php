@@ -26,7 +26,7 @@ include ("include/menu.php");
                     <h4 class="">Registro de Reporte</h4>
                     <div class="card">
                         <div class="card-body">
-                        <form action="Operaciones/registrar_usuario.php" method="POST">
+                        <form action="operaciones/registrar_usuario.php" method="POST">
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">Fecha inicio: </label>
                                 <input type="date" name="fecha_inicio" class="form-control col-lg-4 col-md-4 col-sm-12" required>

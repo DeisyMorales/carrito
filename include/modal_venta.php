@@ -10,7 +10,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <form action="Operaciones/registrar_usuario.php" method="POST">
+                                                <form action="operaciones/registrar_usuario.php" method="POST">
                             
                            
                             <div class="form-group row">
