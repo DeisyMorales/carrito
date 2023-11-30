@@ -28,8 +28,15 @@
 
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">id categoria : </label>
-                                <input type="number" name="id_categoria" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
+                                <select name="id_categoria" id="" class="form-control col-lg-4 col-md-4 col-sm-12">
+                            <option value=""></option>
+                            <?php
+                            $b_categoria = "SELECT * FROM categoria";
+                            $r_b_categoria = mysqli_query($conexion, $b_categoria);
+                            while ($datos_categoria = mysqli_fetch_array($r_b_categoria)) { ?>
+                                <option value="<?php echo $datos_categoria["id"]; ?>"><?php echo $datos_categoria["nombre"]; ?></option>
+                            <?php } ?>
+                        </select>
                             </div>
 
                             <div class="form-group row">
@@ -65,8 +72,15 @@
 
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">id proveedor: </label>
-                                <input type="number" name="id_proveedor" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
+                                <select name="id_proveedor" id="" class="form-control col-lg-4 col-md-4 col-sm-12">
+                            <option value=""></option>
+                            <?php
+                            $b_proveedor = "SELECT * FROM proveedor";
+                            $r_b_proveedor = mysqli_query($conexion, $b_proveedor);
+                            while ($datos_proveedor = mysqli_fetch_array($r_b_proveedor)) { ?>
+                                <option value="<?php echo $datos_proveedor["id"]; ?>"><?php echo $datos_proveedor["ruc"]; ?></option>
+                            <?php } ?>
+                        </select>
                             </div>
                             
 

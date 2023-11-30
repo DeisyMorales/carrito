@@ -14,7 +14,7 @@
 
                                                 <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">id cliente: </label>
-                                <input type="date" name="fecha" class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                <input type="number" name="fecha" class="form-control col-lg-4 col-md-4 col-sm-12" required>
                             </div>
 
                             <div class="form-group row">
