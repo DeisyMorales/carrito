@@ -15,7 +15,7 @@ $nombre = $_POST["nombre"];
 
 
 
-$consulta  = "INSERT INTO roles (nombre	) VALUES ('$nombre')";
+$consulta  = "INSERT INTO roles (nombre) VALUES ('$nombre')";
 
 $ejecutar = mysqli_query($conexion,$consulta);
 if ($ejecutar) {

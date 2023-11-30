@@ -14,7 +14,7 @@
                             
                            
                             <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Serie venta: </label>
+                                <label class="col-lg-3 col-md-3 col-sm-12">Serie de venta: </label>
                                 <input type="text" name="serie" class="form-control col-lg-9 col-md-9 col-sm-12" 
                                 required>
                             </div>
@@ -30,6 +30,16 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">Monto total: </label>
+                                <input type="number" name="monto" class="form-control col-lg-4 col-md-4 col-sm-12" >
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-md-3 col-sm-12">id cliente: </label>
+                                <input type="number" name="monto" class="form-control col-lg-4 col-md-4 col-sm-12" >
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-md-3 col-sm-12">id usuario: </label>
                                 <input type="number" name="monto" class="form-control col-lg-4 col-md-4 col-sm-12" >
                             </div>
 

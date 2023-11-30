@@ -27,6 +27,12 @@
                             </div>
 
                             <div class="form-group row">
+                                <label class="col-lg-3 col-md-3 col-sm-12">id categoria : </label>
+                                <input type="number" name="id_categoria" class="form-control col-lg-9 col-md-9 col-sm-12" 
+                                required>
+                            </div>
+
+                            <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">Precio compra: </label>
                                 <input type="number" name="precio_compra" class="form-control col-lg-9 col-md-9 col-sm-12" 
                                 required>
@@ -55,6 +61,12 @@
                                 <label class="col-lg-3 col-md-3 col-sm-12">imagen: </label>
                                 <input type="file" name="foto" class="form-control col-lg-4 col-md-4 col-sm-12" 
                                 require accept="image/*">
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-md-3 col-sm-12">id proveedor: </label>
+                                <input type="number" name="id_proveedor" class="form-control col-lg-4 col-md-4 col-sm-12" 
+                                required>
                             </div>
                             
 
