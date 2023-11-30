@@ -58,10 +58,12 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12"> Estado: </label>
-                                <input type="number" name="estado" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
+                                  <label class="col-lg-3 col-md-3 col-sm-12"> Estado: </label>
+                                   <select name="estado" class="form-control col-lg-4 col-md-4 col-sm-12">
+                                       <option value="1">Activo</option>
+                                       <option value="0">Inactivo</option>
+                        </select>
+                    </div>
 
 
                             <div class="form-group row">
