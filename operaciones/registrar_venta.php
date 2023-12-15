@@ -18,8 +18,8 @@ echo $id_usuario. "<br>";
 
 
 
-$consulta="INSERT INTO ventas(serie_venta,numero_venta,fecha_hora_venta,monto_total,id_cliente,id_usuario)
-VALUES ('$serie_venta','$numero_venta','$fecha_hora','$monto_total',$id_cliente,$id_usuario)";
+$consulta ="INSERT INTO ventas(serie_venta,numero_venta,fecha_hora_venta,monto_total,id_cliente,id_usuario)
+VALUES ('$serie_venta','$numero_venta','$fecha_hora','$monto_total','$id_cliente','$id_usuario')";
 
 $ejecutar= mysqli_query($conexion,$consulta);
 

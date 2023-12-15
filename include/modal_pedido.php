@@ -10,11 +10,19 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <form action="operaciones/registrar_usuario.php" method="POST">
+                                                <form action="operaciones/registrar_venta.php" method="POST">
 
                                                 <div class="form-group row">
                                 <label class="col-lg-3 col-md-3 col-sm-12">id cliente: </label>
-                                <input type="number" name="fecha" class="form-control col-lg-4 col-md-4 col-sm-12" required>
+                                <select name="id_cliente" id="" class="form-control col-lg-4 col-md-4 col-sm-12">
+                            <option value=""></option>
+                            <?php
+                            $b_cliente = "SELECT * FROM cliente";
+                            $r_b_cliente = mysqli_query($conexion, $b_cliente);
+                            while ($datos_cliente = mysqli_fetch_array($r_b_cliente)) { ?>
+                                <option value="<?php echo $datos_cliente["id"]; ?>"><?php echo $datos_cliente["ruc_dni"]; ?></option>
+                            <?php } ?>
+                        </select>
                             </div>
 
                             <div class="form-group row">

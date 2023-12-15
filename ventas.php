@@ -36,8 +36,9 @@ include ("include/menu.php");
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php include("include/modal_venta.php");?>
+              
                     <h4 class="">Registro de Ventas</h4>
+                    <a href="venta.php" class="btn btn-success">+ Nuevo</a>
                     <div class="card">
                         <div class="card-body">
                         <table id="basic-datatable" class="table dt-responsive nowrap">
