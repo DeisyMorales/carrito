@@ -21,7 +21,7 @@ include("include/conexion.php");
 
 </head>
 <body>
-
+<h1>hpljdfvnkjfn</h1>
 
 <?php 
 //lenguaje en php
