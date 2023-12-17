@@ -21,7 +21,7 @@ include("include/conexion.php");
 
 </head>
 <body>
-<h1>hpljdfvnkjfn</h1>
+
 
 <?php 
 //lenguaje en php
@@ -43,7 +43,7 @@ include ("include/menu.php");
                                 <thead>
                                     <tr>
                                         <th>Nro</th>
-                                        <th>codigo</th>
+                                        <th>codigodfvdfbfdf</th>
                                         <th>Descripcion</th>
                                         <th>Detalle</th>
                                         <th>id categoria</th>
