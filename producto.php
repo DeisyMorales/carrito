@@ -43,7 +43,7 @@ include ("include/menu.php");
                                 <thead>
                                     <tr>
                                         <th>Nro</th>
-                                        <th>codigodfvdfbfdf</th>
+                                        <th>codigo</th>
                                         <th>Descripcion</th>
                                         <th>Detalle</th>
                                         <th>id categoria</th>
