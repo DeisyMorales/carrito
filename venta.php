@@ -208,6 +208,17 @@ include ("include/menu.php");
 
         };
         function eliminar_producto(id){
+            
+            $.ajax({
+                type: "POST",
+                url: "operaciones/eliminar_producto_tabla.php",
+                data: {
+                    id_p: id
+                },
+                success: function(r) {
+                    $('#contenido_tabla').html(r);
+                }
+            })
 
         }
     </script>
