@@ -126,7 +126,7 @@ $_SESSION['productos'] = array();
                                                         <td><input type="number" value="2" class="cantidad" onchange="actualizar_cantidad(id);">editar</td>
                                                         <td>S/. 50.00</td>
                                                         <td>S/. 100.00</td>
-                                                        <td><button class="btn btn-danger" onclick="eliminar_producto(id);">X</button></td>
+                                                        <td><button class="btn btn-danger"  onclick="eliminar_producto(id);">X</button></td>
                                                     </tr>
                                                 <?php } ?>
                                                 <tr>
@@ -207,10 +207,7 @@ $_SESSION['productos'] = array();
             })
         };
 
-        function eliminar_producto(id) {
-
-        };
-<<<<<<< HEAD
+     
         function eliminar_producto(id){
             
             $.ajax({
@@ -223,8 +220,7 @@ $_SESSION['productos'] = array();
                     $('#contenido_tabla').html(r);
                 }
             })
-=======
->>>>>>> be80579fadeeed388d442c1922be596df2b0b784
+        }
 
         function buscar_cliente() {
             var dni = $('#dni_cliente').val();
