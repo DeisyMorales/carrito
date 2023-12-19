@@ -35,7 +35,7 @@
             <div class="navbar-brand-box">
                 <a href="" class="logo">
                     <!-- va el logo, puede ser imagen o texto -->
-                    LOGO
+                   DEYSI
                 </a>
             </div>
             <div id="sidebar-menu">
