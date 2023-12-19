@@ -1,41 +1,34 @@
 <?php
-$lista=array('alfredo','yul','mel','willian','Stewar','mayte','deisy','raul','zamira','bruno','rosilda','yerson','denis','Aron','magaly');
-$contar= count($lista);
+
+$lista=array('jhony','Laura','Juan','Zandra','Liliana','Deysi','Raul','Zamira','Rosilda',
+'Bruno','Jerson','Denisse','Aaron','Magaly');
+$contar=count($lista);
 print_r($lista);
-
-
-
-array_push($lista, "deysi");
-
-
-/*
-$contar= count($lista);
-for ($i=0;$i <= $contar; $i++) {
+/*for ($i=0; $i <= $contar; $i++) { 
     echo $lista[$i]."<br>";
-   
-} 
-*/
-$lista2= array('alfredo'=>40,'yul'=>39);
 
-print_r($lista2);
+}*/
+echo "<br>";
 
-include('include/conexion.php');
+array_push($lista, 'Malu');
+$contar=count($lista);
+for ($i=0; $i <= $contar; $i++) { 
+    echo $lista[$i]."<br>";
+
+}
 
 
+include("include/conexion.php");
 
-$consulta="SELECT * FROM producto";
-$ejecutar= mysqli_query($conexion, $consulta);
+$lista3 = array();
+
+$consulta ="SELECT * FROM producto";
+$ejecutar =mysqli_query($conn, $consulta);
 while ($r_ejecutar = mysqli_fetch_array($ejecutar)) {
-   $lista3[$r_ejecutar['id']]= $r_ejecutar['descripcion'];
-   
+    $lista3[$r_ejecutar['id']] = $r_ejecutar['descripcion'];
+
 }
 
 print_r($lista3);
-
-
-
-
-
-
 
 ?>

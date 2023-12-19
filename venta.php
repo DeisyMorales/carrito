@@ -49,28 +49,28 @@ $_SESSION['productos'] = array();
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <form role="form" action="operaciones/registrar_venta.php" method="POST">
+                                        <form role="form" action="operaciones2/registrar_venta.php" method="POST">
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">DNI: </label>
-                                                <input type="number" name="dni" id="dni_cliente" class="form-control col-lg-4 col-md-4 col-sm-12" required placeholder="dni cliente">
+                                                <input type="number" name="dni" id="dni_cliente" class="form-control col-lg-2 col-md-2 col-sm-6" required placeholder="dni cliente">
                                                 <label class="col-lg-1 col-md-1 col-sm-1"></label>
-                                                <button type="button" class="btn btn-info col-lg-2 col-md-2 col-sm-4" onclick="buscar_cliente();">Buscar</button>
+                                                <button type="button" class="btn btn-info col-lg-1 col-md-1 col-sm-2" onclick="buscar_cliente();">Buscar</button>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-2 col-md-2 col-sm-2">Apellidos y Nombres: </label>
-                                                <div id="cliente_datos" class="col-lg-6 col-md-6 col-sm-12">
-                                                    <input type="text" class="form-control col-lg-4 col-md-4 col-sm-12" readonly>
+                                                <label class="col-lg-2 col-md-2 col-sm-6">Apellidos y Nombres: </label>
+                                                <div id="cliente_datos" class=" col-lg-6 col-md-6 col-sm-12">
+                                                    <input type="text" class="form-control col-lg-6 col-md-6 col-sm-12" readonly>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">Usuario: </label>
-                                                <select name="usuario" id="usuario" class="form-control col-lg-4 col-md-4 col-sm-12">
+                                                <select name="usuario" id="usuario" class="form-control col-lg-6 col-md-6 col-sm-12">
                                                     <option value=""></option>
                                                     <?php
                                                     $consulta = "SELECT * FROM usuario";
-                                                    $ejecutar = mysqli_query($conexion, $consulta);
+                                                    $ejecutar = mysqli_query($conn, $consulta);
                                                     while ($usuario = mysqli_fetch_array($ejecutar)) {
-                                                        echo '<option value="'.$usuario['id'].'">'.$usuario['apellidos_nombres'].'</option>';
+                                                        echo '<option value="' . $usuario['id'] . '">' . $usuario['apellidos_nombres'] . '</option>';
                                                     }
 
                                                     ?>
@@ -78,13 +78,13 @@ $_SESSION['productos'] = array();
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">producto: </label>
-                                                <input type="number" name="producto" id="producto" class="form-control col-lg-4 col-md-4 col-sm-12" placeholder="código producto">
+                                                <input type="number" name="producto" id="producto" class="form-control col-lg-2 col-md-2 col-sm-6" placeholder="código producto">
                                                 <label class="col-lg-1 col-md-1 col-sm-1"></label>
-                                                <button type="button" class="btn btn-info col-lg-2 col-md-2 col-sm-4" onclick="agregar_producto();">Agregar o buscar</button>
+                                                <button type="button" class="btn btn-info col-lg-1 col-md-1 col-sm-2" onclick="agregar_producto();">Agregar</button>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-2 col-md-2 col-sm-6">Fecha y Hora: </label>
-                                                <label for="" class="form-control col-lg-4 col-md-4 col-sm-12">
+                                                <label for="" class="form-control col-lg-2 col-md-2 col-sm-6">
                                                     <?php
                                                     date_default_timezone_set("America/Lima");
                                                     echo date("d-m-Y h:i:s"); ?>
@@ -95,6 +95,10 @@ $_SESSION['productos'] = array();
                                             </div>
                                         </form>
                                     </div>
+
+
+
+
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <table class="table table-bordered mb-0">
                                             <thead>
@@ -102,7 +106,7 @@ $_SESSION['productos'] = array();
                                                     <th colspan="6" class="text-center">PRODUCTOS</th>
                                                 </tr>
                                                 <tr>
-                                                    <th width="5%">Nro</th>
+                                                    <th width="5%">Numeroo</th>
                                                     <th width="60%">Descripción</th>
                                                     <th width="10%">Cant.</th>
                                                     <th width="10%">P.unit.</th>
@@ -110,32 +114,47 @@ $_SESSION['productos'] = array();
                                                     <th width="5%"></th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="contenido_tabla">
+                                            <tbody id="detalle_productos">
+                                                <input type="hidden" name="array_productos" id="array_productos" value="">
                                                 <?php
-                                                $array_productos = $_SESSION['productos'];
-                                                foreach ($array_productos as $key => $value) {
-                                                    // key => id      value => cantidad
-                                                    $consulta = "SELECT * FROM producto WHERE id='$key'";
-                                                    $ejecutar = mysqli_query($conexion, $consulta);
-                                                    $producto = mysqli_fetch_array($ejecutar);
+                                                $cont = 0;
+                                                $suma_total = 0;
+                                                $tabla = "";
+                                                foreach ($_SESSION['productos'] as $key => $value) {
+                                                    $b_producto = "SELECT * FROM producto WHERE id='$key'";
+                                                    $ejec_b_prod = mysqli_query($conn, $b_producto);
+                                                    $r_b_producto = mysqli_fetch_array($ejec_b_prod);
+                                                    $cont++;
+                                                    $tabla .= "<tr>";
 
+                                                    $importe = $r_b_producto['precio_venta'] * $value;
+                                                    $suma_total += $importe;
+                                                    $tabla .= "<td>" . $cont . "</td>
+                                                        <td>" . $r_b_producto['descripcion'] . "</td>
+                                                        <td><input type='number' id='" . $r_b_producto['id'] . "' onchange='agregar_cantidad(" . $r_b_producto['id'] . ")' class='form-control' value='" . $value . "' ></td>
+                                                        <td>" . $r_b_producto['precio_venta'] . "</td><td>" . $importe . "</td>
+                                                        <td><button class='btn btn-success' type='button'onClick='return confirm('Estas Seguro que quieres Eliminar?')'>X</button></td>";
+                                                    $tabla .= "</tr>";
+                                                }
+                                                $tabla .= "<tr><td colspan='4' class='text-center'>TOTAL</td><td>" . $suma_total . "</td></tr>";
+                                                echo $tabla;
                                                 ?>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>nombre producto</td>
-                                                        <td><input type="number" value="2" class="cantidad" onchange="actualizar_cantidad(id);">editar</td>
-                                                        <td>S/. 50.00</td>
-                                                        <td>S/. 100.00</td>
-                                                        <td><button class="btn btn-danger"  onclick="eliminar_producto(id);">X</button></td>
-                                                    </tr>
-                                                <?php } ?>
-                                                <tr>
-                                                    <td colspan="4" class="text-center">TOTAL</td>
-                                                    <td>S/. 100.00</td>
-                                                </tr>
+
                                             </tbody>
+
+
+
+
+
+
+
                                         </table>
+
+                                        <?php
+                                        var_dump($_SESSION['productos']);
+                                        ?>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -177,26 +196,28 @@ $_SESSION['productos'] = array();
 
     <script>
         function agregar_producto() {
-            var codigo = $('#producto').val();
+            var array = $('#array_productos').val();
+            var producto = $('#producto').val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/agregar_producto.php",
+                url: "operaciones2/generar_lista_prueba.php",
                 data: {
-                    cod: codigo
+                    lista: array,
+                    elemento: producto
                 },
                 success: function(r) {
-                    $('#contenido_tabla').html(r);
-                }
-            })
-            document.getElementById('producto').value = '';
 
-        };
+                    $('#detalle_productos').html(r);
+                }
+            });
+            document.getElementById('producto').value = '';
+        }
 
         function actualizar_cantidad(id) {
             var cantidad = $('#cantidad_' + id).val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/actualizar_cantidad.php",
+                url: "operaciones2/actualizar_cantidad.php",
                 data: {
                     id_p: id,
                     cant: cantidad
@@ -207,26 +228,28 @@ $_SESSION['productos'] = array();
             })
         };
 
-     
-        function eliminar_producto(id){
-            
+        function eliminar_productos(id) {
+            // alert(id);
+
+            //ejecutas el ajax
             $.ajax({
-                type: "POST",
-                url: "operaciones/eliminar_producto_tabla.php",
+                type: 'post',
+                url: 'operaciones2/eliminar_producto.php', //El la URL tienes un espacio
                 data: {
-                    id_p: id
+                    id_borrar: id
                 },
-                success: function(r) {
-                    $('#contenido_tabla').html(r);
+                success: function(data) {
+                    location.reload();
                 }
             })
-        }
+
+        };
 
         function buscar_cliente() {
             var dni = $('#dni_cliente').val();
             $.ajax({
                 type: "POST",
-                url: "operaciones/buscar_cliente.php",
+                url: "operaciones2/buscar_cliente.php",
                 data: {
                     dni_c: dni
                 },
@@ -235,6 +258,24 @@ $_SESSION['productos'] = array();
                 }
             })
         };
+    </script>
+
+    <script type="text/javascript">
+        function agregar_cantidad(id) {
+            var cantidad = $('#' + id).val();
+            $.ajax({
+                type: "POST",
+                url: "operaciones2/agregar_cantidad_prueba.php",
+                data: {
+                    producto: id,
+                    cant: cantidad
+                },
+                success: function(r) {
+
+                    $('#detalle_productos').html(r);
+                }
+            });
+        }
     </script>
 </body>
 

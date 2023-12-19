@@ -1,5 +1,3 @@
-conexion.php
+include/conexion.php
 img_usuarios/*.jpg
-
-
-
+img_productos/*.jpg

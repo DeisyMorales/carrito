@@ -1,26 +1,36 @@
 <?php
-include ("../include/conexion.php");
+include("../include/conexion.php");
+//recibir la informacion
 
-//recibir informacion
-$nombre = $_POST["nombre"];
-
-
-//mostrar
-//echo $dni. "<br>";
-//echo $Apell_Nombre. "<br>";
-//echo $correo. "<br>";
-//echo $telefono. "<br>";
-//echo $direccion. "<br>";
-//echo $fecha. "<br>";
+$cate=$_POST['categoria'];
 
 
 
-$consulta  = "INSERT INTO categoria (nombre	) VALUES ('$nombre')";
 
-$ejecutar = mysqli_query($conexion,$consulta);
+
+
+
+    $consulta="INSERT INTO categoria(nombre)
+VALUES ('$cate')";
+
+$ejecutar= mysqli_query($conn, $consulta);
+
 if ($ejecutar) {
     echo "Registro Exitoso";
 }else {
-    echo "Error en el Registro";
+    echo "Registro Fallido";
+
 }
+//mostrar la informacion
+
+//echo $dni."<br>";
+//echo $ape_nom."<br>";
+//echo $correo."<br>";
+//echo $telefono."<br>";
+//echo $direccion."<br>";
+//echo $fecha_naci."<br>";
+
+
+
 ?>
+

@@ -1,84 +1,102 @@
+
+<div class="form-group row">
+                                                <label class="col-lg-2 col-md-2 col-sm-6">Usuario: </label>
+                                                <select name="usuario" id="usuario" class="form-control col-lg-6 col-md-6 col-sm-12">
+                                                    <option value=""></option>
+                                                    <?php
+                                                    $consulta = "SELECT * FROM usuario";
+                                                    $ejecutar = mysqli_query($conn, $consulta);
+                                                    while ($usuario = mysqli_fetch_array($ejecutar)) {
+                                                        echo '<option value="'.$usuario['id'].'">'.$usuario['apellidos_nombres'].'</option>';
+                                                    }
+
+                                                    ?>
+                                                </select>
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos</title>
-    <link rel="stylesheet" href="plantilla/Admin/vertical/assets/css/bootstrap.min.css" type="text/css" >
+    <title>Document</title>
+    <link href="plantilla/Admin/vertical/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="plantilla/Admin/vertical/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="plantilla/Admin/vertical/assets/css/theme.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <?php 
+    // Lenguaje en php
+    include("include/menu.php");
 
+    ?>
 
-<?php 
-//lenguaje en php
-include ("include/menu.php");
-?>
-
-<!--Inicio de Contenido-->
-<div class="main-content">
-    <div class="page-content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <h4 class="">Registro de Sistema</h4>
-                    <div class="card">
-                        <div class="card-body">
-                        <form action="Operaciones/registrar_usuario.php" method="POST">
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">color de correos: </label>
-                                <input type="text" name="color" class="form-control col-lg-4 col-md-4 col-sm-12" required>
+    <!-- INICIO DE CONTENIDO -->
+    <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Sistema</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="operaciones/registrar_usuario.php" method="POST">
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 col-md-2 col-sm-12" >Color Correo:</label>
+                                        <input type="email" name="correo" class="form-control col-lg-10 col-md-10 col-sm-12" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 col-md-2 col-sm-12" >Servidor Correo:</label>
+                                        <input type="email" name="correo" class="form-control col-lg-10 col-md-10 col-sm-12" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 col-md-2 col-sm-12" >Usuario Correo:</label>
+                                        <input type="email" name="correo" class="form-control col-lg-10 col-md-10 col-sm-12" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 col-md-2 col-sm-12" >Password Correo:</label>
+                                        <input type="email" name="correo" class="form-control col-lg-10 col-md-10 col-sm-12" required>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 col-md-2 col-sm-12" >Puerto Correo:</label>
+                                        <input type="email" name="correo" class="form-control col-lg-10 col-md-10 col-sm-12" required>
+                                    </div>                                   
+                                    <div class="form-group row">
+                                        <label class="col-lg-2 col-md-2 col-sm-12" >Dominio:</label>
+                                        <input type="text" name="ape_nom" class="form-control col-lg-10 col-md-10 col-sm-12" required>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label class="col-lg-2 col-md-2 col-sm-12"></label>
+                                        <button type="submit" class="btn btn-danger">Guardar</button>
+                                    </div>
+                                </form>
                             </div>
-                           
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">servidor de correo: </label>
-                                <input type="text" name="servidor" class="form-control col-lg-4 col-md-4 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">usuario correo: </label>
-                                <input type="email" name="correo" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">contraseña correo: </label>
-                                <input type="password" name="contraseña" class="form-control col-lg-9 col-md-9 col-sm-12" 
-                                required>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">puerto correo: </label>
-                                <input type="text" name="puerto" class="form-control col-lg-4 col-md-4 col-sm-12" >
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-md-3 col-sm-12">Dominio: </label>
-                                <input type="text" name="dominio" class="form-control col-lg-4 col-md-4 col-sm-12" >
-                            </div>
-
-                            <div class="form-group row">
-                            <label class="col-lg-3 col-md-3 col-sm-12"></label>
-                                <button type="submit" class="btn btn-success">Guardar
-
-                                </button>
-
-                            </div>
-                        </form>
                         </div>
-                  
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<!--Fin de Contenido-->
+     <!-- FIN DE CONTENIDO -->
 
 
-
-     <!-- jQuery  -->
+    <!-- jQuery  -->
     <script src="plantilla/Admin/vertical/assets/js/jquery.min.js"></script>
     <script src="plantilla/Admin/vertical/assets/js/bootstrap.bundle.min.js"></script>
     <script src="plantilla/Admin/vertical/assets/js/metismenu.min.js"></script>
@@ -89,4 +107,5 @@ include ("include/menu.php");
     <script src="plantilla/Admin/vertical/assets/js/theme.js"></script>
 
 </body>
+
 </html>
